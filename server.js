@@ -23,7 +23,17 @@ app.set('view engine', 'handlebars');
 app.use('/public', express.static(__dirname + "/public"));
 
 
+//Database configuration
+mongoose.connect('mongodb://localhost/sports_page');
+var db = mongoose.connection;
 
+db.on('error', function(err) {
+  console.log('Mongoose Error: ', err);
+});
+db.once('open', function() {
+  console.log('Mongoose connection successful.');
+});
+///////// End Database Config ///////
 
 app.listen(PORT, function(req, res) {
   console.log("App Listening on PORT:" + PORT);
