@@ -3,9 +3,14 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
+var logger = require('morgan');
+var mongoose = require('mongoose');
+
+
 
 //bodyParser
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(logger('dev'));
 
 //routes
 var routes = require('./routes/index');
