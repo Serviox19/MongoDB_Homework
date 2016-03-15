@@ -5,6 +5,7 @@ var cheerio = require('cheerio');
 
 
 var Artice = require('../models/articles.js');
+var Comment = require('../models/comments.js');
 
 
 router.get('/', function(req, res) {
@@ -18,26 +19,24 @@ router.get('/', function(req, res) {
 // });
 
 
-
 router.get('/scraper', function(req, res) {
       request('http://www.foxsports.com/nba', function (error, response, body) {
         if (!error && response.statusCode == 200) {
-          console.log(body);
 
-          // $ = cherrio.load(body);
+          $ = cherrio.load(body);
 
-          // $('title').each(function(i, element) {
+          $('title').each(function(i, element) {
 
-          //     var img = ;
-          //     var title = $(this).children("a").text();
-          //     var link = $(this).children("a").attr("href");
-          //     var publishInfo = ;
-          //     //this is an example, your site will be different//
+              var img;
+              var title = $(this).children("a").text();
+              var link = $(this).children("a").attr("href");
+              var publishInfo;
+              //this is an example, your site will be different//
 
-          //     if (title && link) {
-
-          //     }
-          // })
+              if (title && link) {
+                // if theres data write code to save to DB
+              }
+          })
         }
       })
 

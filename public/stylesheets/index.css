@@ -1,0 +1,33 @@
+#background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -3000;
+}
+
+.stretch {
+    width:100%;
+    height:100%;
+}
+
+#main-content {
+  width: 75%;
+  background-color: #EDF0F5;
+}
+
+
+#articles {
+  display: block;
+  margin: 25px 15px;
+  padding: 0px 20px;
+}
+
+#articles h2 {
+  text-align: center;
+}
+
+#articles .divider {
+  vertical-align: middle;
+}

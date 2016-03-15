@@ -3,12 +3,12 @@ var Schema = mongoose.Schema;
 
 var articleSchema = new Schema({
   title: String,
-  author: String,
+  publishInfo: String,
   img: {
     data: Buffer,
     contentType: String
   },
-  content: String,
+  link: String,
   comments: [{
     type: Schema.Types.ObjectId,
     ref: 'Comments'
