@@ -10,7 +10,7 @@ var mongoose = require('mongoose');
 
 
 app.get('/scraper', function(req, res) {
-      request(<!-- URL LINK -->, function (error, response, body) {
+      request('http://www.foxsports.com/nba', function (error, response, body) {
         if (!error && response.statusCode == 200) {
           $ = cherrio.load(body);
 
