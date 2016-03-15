@@ -4,7 +4,7 @@ var request = require('request');
 var cheerio = require('cheerio');
 
 
-var Artice = require('../models/articles.js');
+var Article = require('../models/articles.js');
 var Comment = require('../models/comments.js');
 
 
@@ -23,19 +23,17 @@ router.get('/scraper', function(req, res) {
       request('http://www.foxsports.com/nba', function (error, response, body) {
         if (!error && response.statusCode == 200) {
 
-          $ = cherrio.load(body);
+          $ = cheerio.load(body);
 
-          $('title').each(function(i, element) {
+          $('.buzzer-article').each(function(i, element) {
+              // console.log(element.children);
+              var img = $(element).children().find('.buzzer-image-link').attr('href');
+              // console.log(img);
+              var title = $(element).children().find('.buzzer-title').text();
+              var link = $(element).children().find('.buzzer-title-link').attr('href');
+              var publishInfo = $(element).children().find('.buzzer-details').find('.buzzer-pubdate').text();
 
-              var img;
-              var title = $(this).children("a").text();
-              var link = $(this).children("a").attr("href");
-              var publishInfo;
-              //this is an example, your site will be different//
 
-              if (title && link) {
-                // if theres data write code to save to DB
-              }
           })
         }
       })
