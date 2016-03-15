@@ -14,9 +14,14 @@ router.get('/', function(req, res) {
 
 
 //gets all scraped data
-// router.get('/all', function(req, res) {
-//   res.json(documents);
-// });
+router.get('/articles', function(req, res) {
+  Article.find({}, function(err, articles) {
+    if(err) {
+      throw err;
+    }
+    res.json(articles);
+  })
+});
 
 
 router.get('/scraper', function(req, res) {
@@ -33,6 +38,20 @@ router.get('/scraper', function(req, res) {
               var link = $(element).children().find('.buzzer-title-link').attr('href');
               var publishInfo = $(element).children().find('.buzzer-details').find('.buzzer-pubdate').text();
 
+              var article = new Article({
+                imgage: img,
+                title: title,
+                publishInfo: publishInfo,
+                link: link
+              });
+
+              article.save(function(err, document){
+                if(err) {
+                  return res.send("ERROR: " + err);
+                };
+              })
+
+              // if (img && title && link && publishInfo);
 
           })
         }
@@ -40,6 +59,7 @@ router.get('/scraper', function(req, res) {
 
       res.send("Scrape Done!");
 });
+
 
 
 module.exports = router;
