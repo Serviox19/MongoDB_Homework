@@ -3,10 +3,13 @@ var app = express();
 var request = require('request');
 var cheerio = require('cheerio');
 var PORT = process.env.PORT || 3000;
+var mongoose = require('mongoose');
 
 //Database Config
-var mongoose = require('mongoose');
-//finish db setup
+mongoose.connect('localhost', 'sports_app');
+var db = mongoose.connection;
+
+var Artice = require('/models/articles.js');
 
 
 app.get('/scraper', function(req, res) {
@@ -21,16 +24,7 @@ app.get('/scraper', function(req, res) {
               //this is an example, your site will be different//
 
               if (title && link) {
-                    db.scraedData.save({
-                          title: title,
-                          link: link
-                    }, function (err, saved) {
-                          if(err){
-                            console.log(err);
-                          } else {
-                            console.log(saved);
-                          }
-                    })
+
               }
           })
         }

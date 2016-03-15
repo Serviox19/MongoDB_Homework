@@ -8,8 +8,12 @@ var articleSchema = new Schema({
     data: Buffer,
     contentType: String
   },
-  content: String
+  content: String,
+  comments: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Comments'
+  }]
 });
 
-var article = mongoose.model('article', articleSchema);
-module.exports = article;
+var Article = mongoose.model('Article', articleSchema);
+module.exports = Article;

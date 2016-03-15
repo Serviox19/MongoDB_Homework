@@ -7,7 +7,6 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 
 
-
 //bodyParser
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(logger('dev'));
