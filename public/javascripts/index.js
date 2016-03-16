@@ -1,7 +1,19 @@
 $(document).ready(function() {
   $.getJSON("/articles", function(response) {
     response.forEach(function(article) {
-      var newArticle =;
+      var newArticle = "<div class="row">";
+      newArticle += "<div class="divider"></div>";
+      newArticle += "<div class="section"><img src=" + article.image + >";
+      newArticle += "<h5>" + article.title + "</h5><div class="content">" + article.link + "</div>";
+      newArticle += "<div class="inputComment">";
+      newArticle += "<form class="col s12" action="" method="POST"><div class="row">";
+      newArticle += "<div class="input-field col s6">";
+      newArticle += "<i class="material-icons prefix">comment</i>";
+      newArticle += "<input id="icon_prefix" type="text" class="validate">";
+      newArticle += "<label for="icon_prefix">Comment Here!</label>";
+      newArticle += "</div></div></form></div>";
+      newArticle += "<div class="Comments"><div class="container"><h6>Comments go here!</h6>";
+      newArticle += "</div></div></div></div>";
       $(#insert-div).append(newArticle);
     });
   });

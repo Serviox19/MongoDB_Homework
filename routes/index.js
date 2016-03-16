@@ -32,7 +32,7 @@ router.get('/scraper', function(req, res) {
 
           $('.buzzer-article').each(function(i, element) {
               // console.log(element.children);
-              var img = $(element).children().find('.buzzer-image-link').attr('href');
+              var img = $(element).children().find('.responsive-image-wrapper').find('img').attr("src");
               var title = $(element).children().find('.buzzer-title').text();
               var link = $(element).children().find('.buzzer-title-link').attr('href');
               var publishInfo = $(element).children().find('.buzzer-details').find('.buzzer-pubdate').text();
