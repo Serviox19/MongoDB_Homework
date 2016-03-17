@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 var cheerio = require('cheerio');
+var mongoose = require('mongoose');
 
 
 var Article = require('../models/articles.js');
@@ -9,19 +10,23 @@ var Comment = require('../models/comments.js');
 
 
 router.get('/', function(req, res) {
-  res.render('index');
+  mongoose.model('Article').find(function(err, Article) {
+    res.render('index', {
+      Article: Article,
+    });
+  });
 });
 
 
 //gets all scraped data
-router.get('/articles', function(req, res) {
-  Article.find({}, function(err, articles) {
-    if(err) {
-      throw err;
-    }
-    res.json(articles);
-  })
-});
+// router.get('/articles', function(req, res) {
+//   Article.find({}, function(err, articles) {
+//     if(err) {
+//       throw err;
+//     }
+//     res.json(articles);
+//   })
+// });
 
 
 router.get('/scraper', function(req, res) {

@@ -4,7 +4,39 @@
       <h2><span class="flow-text">Welcome to Mora Sports and News!</span></h2>
     </div>
   </div><!-- End Row -->
-  <div id="insert-div"></div>
 </div><!-- End Articles div -->
+
+
+<div class="container" id="insert-div">
+{{#each Article}}
+  <div class="row">
+    <div class="divider"></div>
+    <div class="section">
+      <h5>{{this.title}}</h5>
+      <img src="{{this.image}}" align="left">
+      <div class="content">
+        <p class="publish-info">{{this.publishInfo}}</p>
+        <p class="link"><a target="_blank" href="{{this.link}}">Link to Full Article</a></p>
+      </div>
+      <div class="inputComment">
+        <form class="col s12" action="/comments" method="POST">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix">comment</i>
+              <input id="icon_prefix" type="text" class="validate" name="comment">
+              <label for="icon_prefix">Type Comment Here!</label>
+            </div>
+          </div>
+        </form><!-- End Form -->
+      </div><!-- End Comment Input -->
+      <div class="Comments">
+        <div class="container">
+          <h6>Comments go here!</h6>
+          </div>
+      </div><!-- End Display Comments section -->
+    </div><!-- End Section -->
+  </div><!-- End Row -->
+{{/each}}
+</div><!-- End Container -->
 
 
