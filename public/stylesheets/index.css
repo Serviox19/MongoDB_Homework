@@ -1,22 +1,22 @@
-#background {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: -3000;
-}
 
-.stretch {
-    width:100%;
-    height:100%;
-}
 
 #main-content {
   width: 75%;
   background-color: #EDF0F5;
 }
 
+#main-content #insert-div {
+  width: 75%;
+}
+
+#main-content #insert-div img {
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+#main-content #insert-div .inputComment {
+  width: 75%;
+}
 
 #articles {
   display: block;
@@ -24,10 +24,12 @@
   padding: 0px 20px;
 }
 
-#articles h2 {
+#article-header h2 {
   text-align: center;
 }
 
-#articles .divider {
+#article-header .divider {
   vertical-align: middle;
 }
+
+
