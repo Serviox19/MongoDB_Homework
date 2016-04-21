@@ -5,7 +5,8 @@ var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
-
+var scraper = require('./config/scraper.js');
+var db = require('./config/db');
 
 //bodyParser
 app.use(bodyParser.urlencoded({extended: false}));
@@ -20,20 +21,6 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 app.use('/public', express.static(__dirname + "/public"));
-
-
-//Database configuration
-mongoose.connect('mongodb://localhost/sports_page');
-var db = mongoose.connection;
-
-db.on('error', function(err) {
-  console.log('Mongoose Error: ', err);
-});
-db.once('open', function() {
-  console.log('Mongoose connection successful.');
-});
-///////// End Database Config ///////
-
 
 
 app.listen(PORT, function(req, res) {
