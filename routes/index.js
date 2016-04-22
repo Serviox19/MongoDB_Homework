@@ -3,18 +3,11 @@ var router = express.Router();
 var request = require('request');
 var cheerio = require('cheerio');
 var mongoose = require('mongoose');
-
-
 var Basketball = require('../models/basketball.js');
 
 
-
 router.get('/', function(req, res) {
-  mongoose.model('Article').find(function(err, Article) {
-    res.render('index', {
-      Article: Article,
-    });
-  });
+  res.send('/views/index.html');
 });
 
 
