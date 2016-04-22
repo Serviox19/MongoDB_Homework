@@ -5,8 +5,9 @@ var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
-var scraper = require('./config/scraper.js');
 var db = require('./config/db');
+//var scraper = require('./config/scraper.js');
+
 
 //bodyParser
 app.use(bodyParser.urlencoded({extended: false}));
@@ -20,7 +21,10 @@ app.use('/', routes);
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
+app.use(express.static(__dirname + "/public"));
 app.use('/public', express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public/views"));
+app.use(express.static(__dirname + "/public/views/partials"));
 
 
 app.listen(PORT, function(req, res) {

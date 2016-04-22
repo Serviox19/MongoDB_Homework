@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 //Database Config
 var db = mongoose.connection;
 
-var Artice = require('../models/articles.js');
+var Basketball = require('../models/basketball.js');
 
 
 request('http://www.foxsports.com/nba', function (error, response, body) {
@@ -21,14 +21,14 @@ request('http://www.foxsports.com/nba', function (error, response, body) {
       var publishInfo = $(element).children().find('.buzzer-details').find('.buzzer-pubdate').text();
       var link = $(element).children().find('.buzzer-title-link').attr('href');
 
-      var article = new Article({
+      var nbaArticle = new Basketball({
         image: img,
         title: title,
         publishInfo: publishInfo,
         link: link
       });
 
-      article.save(function(err, document){
+      nbaArticle.save(function(err, document){
         if(err) {
           return res.send("ERROR: " + err);
         };
