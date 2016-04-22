@@ -1,12 +1,25 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var uniqueValidator = require('mongoose-unique-validator');
 
-var nbaSchema = new Schema({
-  image: String,
-  title: String,
-  publishInfo: String,
-  link: String
+var nbaSchema = new mongoose.Schema({
+  image: {
+    type: String,
+    unique: true
+  },
+  title: {
+    type: String,
+    unique: true
+  },
+  publishInfo: {
+    type: String,
+    unique: true
+  },
+  link: {
+    type: String,
+    unique: true
+  }
 });
 
+nbaSchema.plugin(uniqueValidator, { message: '/' });
 var Basketball = mongoose.model('Basketball', nbaSchema);
 module.exports = Basketball;
