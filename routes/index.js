@@ -4,16 +4,18 @@ var request = require('request');
 var cheerio = require('cheerio');
 var mongoose = require('mongoose');
 var Basketball = require('../models/basketball.js');
+// var Football = require('../models/football.js');
+// var Baseball = require('../models/baseball.js');
 
 
-router.get('/', function(req, res) {
-  res.send('/views/index.html');
+router.get('/', function(req, res, next) {
+  res.send('/public/views/index.html');
 });
 
 
-router.get('/nbaDocs', function(req, res) {
-  request('http://www.foxsports.com/nba', function (error, response, body) {
-    if (!error && response.statusCode == 200) {
+router.get('/basketball', function(req, res, next) {
+  request('https://www.foxsports.com/nba', function (err, response, body) {
+    if (!err && response.statusCode == 200) {
 
       $ = cheerio.load(body);
 
@@ -33,7 +35,9 @@ router.get('/nbaDocs', function(req, res) {
         nbaArticle.save(function(err, document){
           if(err) {
             return res.send("ERROR: " + err);
-          };
+          } else {
+            console.log("nba!")
+          }
         });
       });
     }//end if statement
@@ -46,28 +50,38 @@ router.get('/nbaDocs', function(req, res) {
 });//end get route
 
 
-router.get('/nflDocs', function(req, res) {
-  request('', function(error, response, body) {
-    if (!error && response.statusCode == 200) {
+// router.get('/football', function(req, res, next) {
+//   request('https://www.foxsports.com/nfl', function(error, response, body) {
+//     if (!error && response.statusCode == 200) {
 
-      $ = cheerio.load(body);
+//       $ = cheerio.load(body);
 
-      $// start definig data to scrape
-    }
-  });// end request
-});// end get route
+//       $// start definig data to scrape
+//     }
+//   });// end request
+//   mongoose.model('Football').find(function(err, docs) {
+//     if (!err) {
+//       res.send(docs);
+//     }
+//   });
+// });// end get route
 
 
-router.get('/mlbDocs', function(req, res) {
-  request('', function(error, response, body) {
-    if (!error && response.statusCode == 200) {
+// router.get('/baseball', function(req, res, next) {
+//   request('https://www.foxsports.com/mlb', function(error, response, body) {
+//     if (!error && response.statusCode == 200) {
 
-      $ = cheerio.load(body);
+//       $ = cheerio.load(body);
 
-      $// start definig data to scrape
-    }
-  });// end request
-});// end get route
+//       $// start definig data to scrape
+//     }
+//   });// end request
+//   mongoose.model('Baseball').find(function(err, docs) {
+//     if (!err) {
+//       res.send(docs);
+//     }
+//   });
+// });// end get route
 
 
 

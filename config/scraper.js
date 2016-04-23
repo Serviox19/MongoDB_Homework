@@ -11,7 +11,7 @@ var Baseball;
 var Football;
 
 
-request('http://www.foxsports.com/nba', function (error, response, body) {
+request('https://www.foxsports.com/nba', function (error, response, body) {
   if (!error && response.statusCode == 200) {
 
     $ = cheerio.load(body);
