@@ -2,12 +2,13 @@ var express = require('express');
 var app = express();
 var request = require('request');
 var cheerio = require('cheerio');
-var mongoose = require('mongoose');
 
 //Database Config
-var db = mongoose.connection;
+var db = require('./db.js');
 
 var Basketball = require('../models/basketball.js');
+var Baseball;
+var Football;
 
 
 request('http://www.foxsports.com/nba', function (error, response, body) {
@@ -36,7 +37,6 @@ request('http://www.foxsports.com/nba', function (error, response, body) {
     });
   }//end if statement
 });//end request
-console.log("Scrape Done!");
 
 
 
