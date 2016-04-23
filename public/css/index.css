@@ -1,3 +1,17 @@
+.nav-wrapper {
+ background-color: #505050;
+}
 
+.button-collapse {
+  padding-left: 15px;
+}
+
+.side-nav {
+  background-color: #505050;
+}
+
+.side-nav li a {
+  color: white;
+}
 
 

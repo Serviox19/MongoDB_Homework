@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var uniqueValidator = require('mongoose-unique-validator');
 
-var nflSchema = new Schema({
+var nflSchema = new mongoose.Schema({
   image: {
     type: String,
     unique: true

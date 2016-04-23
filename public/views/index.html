@@ -5,14 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sports App</title>
   <script type="text/javascript" src="bower_components/angular/angular.js"></script>
-  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="bower_components/Materialize/dist/css/materialize.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="../public/css/index.css">
 </head>
 <body>
 
-<!-- Nav Bar ASAP -->
+<nav>
+  <div class="nav-wrapper">
+    <a ui-sref="/" class="brand-logo">Mora Sports</a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a ui-sref="home">Home</a></li>
+      <li><a ui-sref="basketball">NBA</a></li>
+      <li><a ui-sref="football">NFL</a></li>
+      <li><a ui-sref="baseball">MLB</a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li><a ui-sref="home">Home</a></li>
+      <li><a ui-sref="basketball">NBA</a></li>
+      <li><a ui-sref="football">NFL</a></li>
+      <li><a ui-sref="baseball">MLB</a></li>
+    </ul>
+  </div>
+</nav>
 
 <div class="container-fluid">
   <div class="row">
@@ -25,6 +42,8 @@
 
 <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="bower_components/Materialize/dist/js/materialize.min.js"></script>
 <script type="text/javascript" src="../public/angCtrl/app.js"></script>
+<script type="text/javascript" src="../public/js/index.js"></script>
 </body>
 </html>
