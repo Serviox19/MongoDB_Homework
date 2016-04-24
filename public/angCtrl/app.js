@@ -1,4 +1,4 @@
-var app = angular.module('sportsApp', ['ui.router']);
+var app = angular.module('sportsApp', ['ui.router', 'nbaCtrl', 'nflCtrl', 'mlbCtrl']);
 
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/');
