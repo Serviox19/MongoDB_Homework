@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/sports_page');
+//Database configuration
+mongoose.connect('mongodb://localhost:27017/sports-app');
 var db = mongoose.connection;
 
 db.on('error', function(err) {

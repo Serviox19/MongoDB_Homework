@@ -9,17 +9,17 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "partials/home.html",
       controller: ""
     })
-    .state('basketball', {
+    .state('basket', {
       url: "/nba",
       templateUrl: "partials/nba.html",
       controller: ""
     })
-    .state('football', {
+    .state('foot', {
       url: "/nfl",
       templateUrl: "partials/nfl.html",
       controller: ""
     })
-    .state('baseball', {
+    .state('base', {
       url: "/mlb",
       templateUrl: "partials/mlb.html",
       controller: ""

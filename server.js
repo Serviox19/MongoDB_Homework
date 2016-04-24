@@ -1,12 +1,12 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var logger = require('morgan');
-var mongoose = require('mongoose');
-var db = require('./config/db');
-//var scraper = require('./config/scraper.js');
+var logger = require('morgan')
 
 var PORT = process.env.PORT || 3000;
+
+var db = require('./config/db');
+//var scraper = require('./config/scraper.js');
 
 //bodyParser
 app.use(logger('dev'));
