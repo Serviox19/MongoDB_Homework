@@ -1,6 +1,6 @@
 var nflCtrl = angular.module('nflCtrl', ['ngAnimate']);
 
-nflCtrl.controller('', ['$scope', '$http', function($scope, $http) {
+nflCtrl.controller('nflNews', ['$scope', '$http', function($scope, $http) {
   $scope.articles = [];
 
   $http.get('/football').success(function(data) {

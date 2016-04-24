@@ -22,12 +22,13 @@ router.get('/basketball', function(req, res, next) {
       $ = cheerio.load(body);
 
       $('.buzzer-article').each(function(i, element) {
+        // console.log(element);
         var img = $(element).children().find('.responsive-image-wrapper').find('img').attr("src");
         var title = $(element).children().find('.buzzer-title').text();
         var publishInfo = $(element).children().find('.buzzer-details').find('.buzzer-pubdate').text();
         var link = $(element).children().find('.buzzer-title-link').attr('href');
 
-        var nba = new Basketball({
+        var nbaArticle = new Basketball({
           image: img,
           title: title,
           publishInfo: publishInfo,
@@ -52,80 +53,80 @@ router.get('/basketball', function(req, res, next) {
 });//end get route
 
 
-// //Football
-// router.get('/football', function(req, res, next) {
-//   request('https://www.foxsports.com/nfl', function(err, response, body) {
-//     if (!err && response.statusCode == 200) {
+//Football
+router.get('/football', function(req, res, next) {
+  request('http://www.foxsports.com/nfl', function(err, response, body) {
+    if (!err && response.statusCode == 200) {
 
-//       $ = cheerio.load(body);
+      $ = cheerio.load(body);
 
-//       $('.buzzer-article').each(function(i, element) {
-//         var img = $(element).children().find('.responsive-image-wrapper').find('img').attr("src");
-//         var title = $(element).children().find('.buzzer-title').text();
-//         var publishInfo = $(element).children().find('.buzzer-details').find('.buzzer-pubdate').text();
-//         var link = $(element).children().find('.buzzer-title-link').attr('href');
+      $('.buzzer-article').each(function(i, element) {
+        var img = $(element).children().find('.responsive-image-wrapper').find('img').attr("src");
+        var title = $(element).children().find('.buzzer-title').text();
+        var publishInfo = $(element).children().find('.buzzer-details').find('.buzzer-pubdate').text();
+        var link = $(element).children().find('.buzzer-title-link').attr('href');
 
-//         var nfl = new Football({
-//           image: img,
-//           title: title,
-//           publishInfo: publishInfo,
-//           link: link
-//         });
+        var nflArticle = new Football({
+          image: img,
+          title: title,
+          publishInfo: publishInfo,
+          link: link
+        });
 
-//         nflArticle.save(function(err, document) {
-//           if (err) {
-//             console.log("ERROR: " + err);
-//           } else {
-//             console.log("nba!")
-//           }
-//         });
-//       });
-//     }// end if statement
-//   });// end request
-//   mongoose.model('Football').find(function(err, docs) {
-//     if (!err) {
-//       res.send(docs);
-//     }
-//   });
-// });// end get route
+        nflArticle.save(function(err, document) {
+          if (err) {
+            console.log("ERROR: " + err);
+          } else {
+            console.log("nfl!")
+          }
+        });
+      });
+    }// end if statement
+  });// end request
+  mongoose.model('Football').find(function(err, docs) {
+    if (!err) {
+      res.send(docs);
+    }
+  });
+});// end get route
 
 
-// ////Baseball
-// router.get('/baseball', function(req, res, next) {
-//   request('https://www.foxsports.com/mlb', function(err, response, body) {
-//     if (!err && response.statusCode == 200) {
+////Baseball
+router.get('/baseball', function(req, res, next) {
+  request('http://www.foxsports.com/mlb', function(err, response, body) {
+    if (!err && response.statusCode == 200) {
 
-//       $ = cheerio.load(body);
+      $ = cheerio.load(body);
 
-//       $('.buzzer-article').each(function(i, element) {
-//         var img = $(element).children().find('.responsive-image-wrapper').find('img').attr("src");
-//         var title = $(element).children().find('.buzzer-title').text();
-//         var publishInfo = $(element).children().find('.buzzer-details').find('.buzzer-pubdate').text();
-//         var link = $(element).children().find('.buzzer-title-link').attr('href');
+      $('.buzzer-article').each(function(i, element) {
+        var img = $(element).children().find('.responsive-image-wrapper').find('img').attr("src");
+        var title = $(element).children().find('.buzzer-title').text();
+        var publishInfo = $(element).children().find('.buzzer-details').find('.buzzer-pubdate').text();
+        var link = $(element).children().find('.buzzer-title-link').attr('href');
 
-//         var mlb = new Baseball({
-//           image: img,
-//           title: title,
-//           publishInfo: publishInfo,
-//           link: link
-//         });
+        var mlbArticle = new Baseball({
+          image: img,
+          title: title,
+          publishInfo: publishInfo,
+          link: link
+        });
 
-//         mlbArticle.save(function(err, document){
-//           if (err) {
-//             console.log("ERROR: " + err);
-//           } else {
-//             console.log("nba!")
-//           }
-//         });
-//       });
-//     }// end if statement
-//   });// end request
-//   mongoose.model('Baseball').find(function(err, docs) {
-//     if (!err) {
-//       res.send(docs);
-//     }
-//   });
-// });// end get route
+        mlbArticle.save(function(err, document){
+          if (err) {
+            console.log("ERROR: " + err);
+          } else {
+            console.log("mlb!")
+          }
+        });
+      });
+    }// end if statement
+  });// end request
+  mongoose.model('Baseball').find(function(err, docs) {
+    if (!err) {
+      res.send(docs);
+    }
+  });
+});// end get route
 
 
 

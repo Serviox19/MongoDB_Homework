@@ -1,6 +1,6 @@
 var mlbCtrl = angular.module('mlbCtrl', ['ngAnimate']);
 
-mlbCtrl.controller('', ['$scope', '$http', function($scope, $http) {
+mlbCtrl.controller('mlbNews', ['$scope', '$http', function($scope, $http) {
   $scope.articles = [];
 
   $http.get('/baseball').success(function(data) {

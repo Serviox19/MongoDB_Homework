@@ -6,17 +6,17 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row" ng-controller="nbaNews">
   <div class="col s12 l8">
-    <div class="card">
+    <div class="card" ng-repeat="article in articles">
       <div class="card-image">
-        <img src="" class="image">
+        <img src="{{article.image}}" class="image">
       </div>
       <div class="card-content">
-        <p>Title</p>
+        <p>{{article.title}}</p>
       </div>
       <div class="card-action">
-        <span><a href="">Read More</a><p class="publish right">test</p></span>
+        <span><a href="{{article.link}}">Read More</a><p class="publish right">{{article.publishInfo}}</p></span>
       </div>
     </div>
   </div>
