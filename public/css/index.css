@@ -14,4 +14,13 @@
   color: white;
 }
 
+.side-nav li {
+height: 50px;
+text-align: center;
+}
+
+.material-icons {
+  color: #000;
+}
+
 
