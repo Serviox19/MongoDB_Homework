@@ -2,8 +2,12 @@
  background-color: #505050;
 }
 
+.brand-logo {
+  color: #DDD2D3;
+}
+
 .button-collapse {
-  padding-left: 15px;
+  padding-left: 20px;
 }
 
 .side-nav {
@@ -11,16 +15,43 @@
 }
 
 .side-nav li a {
-  color: white;
+  color: #DDD2D3;
 }
 
 .side-nav li {
 height: 50px;
 text-align: center;
+vertical-align: middle;
 }
 
 .material-icons {
   color: #000;
 }
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: #DDD2D3;
+  font-family: "Verdana", Times, Sans-serif;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.social-links {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.social-links a {
+  color: #DDD2D3;
+}
+
+#faceboox {
+  font-size: 12px;
+}
+
 
 
