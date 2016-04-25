@@ -60,6 +60,21 @@ main {
   margin-top: 15px;
 }
 
+#newsDiv {
+  margin: 0 auto !important;
+}
+
+#banner {
+  margin-top: 20px;
+}
+
+.section img {
+  height: 100px;
+  width: 100px;
+  display: block;
+  margin: 0 auto;
+}
+
 
 
 
