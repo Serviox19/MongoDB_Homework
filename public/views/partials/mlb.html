@@ -8,9 +8,9 @@
 
 <div class="row" ng-controller="mlbNews">
   <div class="col s12 l8">
-    <div class="card" ng-repeat="article in articles">
+    <div class="card z-depth-2" ng-repeat="article in articles | orderBy: 'publishInfo': true">
       <div class="card-image">
-        <img src="{{article.image}}" class="image">
+        <img class="responsive-img" src="{{article.image}}">
       </div>
       <div class="card-content">
         <p>{{article.title}}</p>
