@@ -6,7 +6,7 @@ var logger = require('morgan')
 var PORT = process.env.PORT || 3000;
 
 var db = require('./config/db');
-var scraper = require('./config/scraper.js');
+//var scraper = require('./config/scraper.js');
 
 //bodyParser
 app.use(logger('dev'));
