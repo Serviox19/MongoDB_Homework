@@ -66,6 +66,8 @@ main {
 
 #banner {
   margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .section img {

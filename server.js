@@ -28,5 +28,3 @@ app.use('/', routes);
 app.listen(PORT, function(req, res) {
   console.log("App Listening on PORT:" + PORT);
 });
-
-
