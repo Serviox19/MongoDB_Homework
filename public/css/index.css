@@ -61,14 +61,15 @@ main {
   margin-top: 15px;
 }
 
-#newsDiv {
-  margin: 0 auto !important;
+.banner img {
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+  width: 75%;
 }
 
-#banner {
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
+#newsDiv {
+  margin: 0 auto !important;
 }
 
 .section img {
@@ -77,8 +78,3 @@ main {
   display: block;
   margin: 0 auto;
 }
-
-
-
-
-
