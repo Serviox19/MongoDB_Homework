@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 //Database configuration
-if( process.env.PORT) {
+if( process.env.PORT ) {
   mongoose.connect("mongodb://admin:password@ds061365.mlab.com:61365/sports-app");
 } else {
   mongoose.connect('mongodb://localhost:27017/sports-app');
